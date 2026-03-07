@@ -9,41 +9,7 @@ A scalable data warehousing solution designed to transform raw, fragmented data 
 ## 📐 Architecture
 
 ```
-                       ┌─────────────────────────────────────────────────────────────────────────┐
-                       │                         SOURCE SYSTEMS                                  │
-                       │   ┌──────────────────────┐        ┌──────────────────────────────────┐  │
-                       │   │         CRM          │        │              ERP                 │  │
-                       │   │  cust_info           │        │  CUST_AZ12   LOC_A101            │  │
-                       │   │  prd_info            │        │  PX_CAT_G1V2 HR_HX19             │  │
-                       │   │  sales_details       │        │  INV_Q4V1    PO_ORD44            │  │
-                       │   │  camp_info           │        │  VND_Z90                         │  │
-                       │   │  supp_tkts           │        │                                  │  │
-                       │   └──────────────────────┘        └──────────────────────────────────┘  │
-                       └─────────────────────────────────────────────────────────────────────────┘
-                                │  Full Load (BULK INSERT + Stored Procedures)
-                                ▼
-                       ┌─────────────────────────────────────────────────────────────────────────┐
-                       │   BRONZE LAYER  (Raw Ingestion — No Transformation)                     │
-                       │  12 tables | All columns NVARCHAR | Metadata: dwh_create_date           │
-                       └─────────────────────────────────────────────────────────────────────────┘
-                                │  Cleanse · Standardize · Normalize · Deduplicate
-                                ▼
-                       ┌─────────────────────────────────────────────────────────────────────────┐
-                       │   SILVER LAYER  (Cleansed & Integrated)                                 │
-                       │  12 tables | Typed columns | Business rules applied                     │
-                       └─────────────────────────────────────────────────────────────────────────┘
-                                │  Join · Aggregate · Star Schema
-                                ▼
-                       ┌─────────────────────────────────────────────────────────────────────────┐
-                       │   GOLD LAYER   (Analytics-Ready Star Schema — SQL Views)                │
-                       │                                                                         │
-                       │   DIMENSIONS              FACTS                                         │
-                       │   dim_customers     ───►  fact_sales                                    │
-                       │   dim_products      ───►  fact_support_tickets                          │
-                       │   dim_employees     ───►  fact_inventory                                │
-                       │   dim_vendors       ───►  fact_purchase_orders                          │
-                       │   dim_campaigns                                                         │
-                       └─────────────────────────────────────────────────────────────────────────┘
+![Data Architecture](docs/architecture.png)
 ```
 
 ---
