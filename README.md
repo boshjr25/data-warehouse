@@ -8,9 +8,7 @@ A scalable data warehousing solution designed to transform raw, fragmented data 
 
 ## 📐 Architecture
 
-```
 ![Data Architecture](docs/architecture.png)
-```
 
 ---
 
