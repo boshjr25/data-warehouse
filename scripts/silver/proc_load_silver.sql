@@ -549,8 +549,10 @@ BEGIN
                     ELSE TRY_CONVERT(DATE, inv_snap_date, 23)
                 END AS inv_snap_date
             FROM bronze.erp_inv_q4v1
-            WHERE TRY_CAST(inv_prd_id AS INT) <= 397
-              AND TRY_CAST(inv_prd_id AS INT) IS NOT NULL
+            WHERE TRY_CAST(inv_prd_id AS INT) IS NOT NULL
+            AND TRY_CAST(inv_prd_id AS INT) IN (
+                SELECT prd_id FROM silver.crm_prd_info
+            )
         ),
         deduped AS (
             SELECT *,
