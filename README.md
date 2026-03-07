@@ -79,7 +79,7 @@ data-warehouse-project/
 ├── 📁 docs/
 │   ├── data_catalog.md                      # Column-level data dictionary
 │   ├── data_quality_issues.md               # All dirty data patterns documented
-│   └── DWH_Integration_Guide_v2.docx        # Full architecture guide
+│   └── DWH_Integration_Guide.docx        # Full architecture guide
 │
 ├── 📁 tests/
 │   └── quality_checks_silver.sql            # Data quality validation queries
