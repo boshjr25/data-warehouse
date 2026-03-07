@@ -41,10 +41,10 @@ data-warehouse-project/
 │   └── DDL_Create_Views_Gold.sql            # Create 5 dims + 4 facts
 │
 ├── 📁 docs/
-│   ├── DWH_Integration_Guide.docx           # Full architecture guide
+│   ├── data_quality_issues.md               # All dirty data patterns documented
 │   ├── architecture.png                     # Data Architecture  
 │   ├── data_catalog.md                      # Column-level data dictionary
-│   └── data_quality_issues.md               # All dirty data patterns documented
+│   └── dwh_integration_guide.docx           # Full architecture guide
 │
 ├── 📁 tests/
 │   └── quality_checks_silver.sql            # Data quality validation queries
